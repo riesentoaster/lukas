@@ -1,0 +1,66 @@
+{{ define "main" }}
+<header class="hero">
+  <div class="container">
+    <h1>{{ .Site.Title }}</h1>
+    <p class="subtitle">{{ .Site.Params.description }}</p>
+  </div>
+</header>
+
+<main class="container">
+
+  {{/* --- Über mich --- */}}
+  {{ with .Params.ueber_mich }}
+  <section id="ueber-mich">
+    <h2>{{ .titel }}</h2>
+    <p>{{ .text | markdownify }}</p>
+  </section>
+  {{ end }}
+
+  {{/* --- Tätigkeiten --- */}}
+  {{ with .Params.taetigkeiten }}
+  <section id="taetigkeiten">
+    <h2>{{ .titel }}</h2>
+    <div class="cards">
+      {{ range .eintraege }}
+      <div class="card">
+        <h3>{{ .rolle }}</h3>
+        <p>{{ .beschreibung | markdownify }}</p>
+      </div>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* --- Podcasts --- */}}
+  {{ with .Params.podcasts }}
+  <section id="podcasts">
+    <h2>{{ .titel }}</h2>
+    <div class="cards">
+      {{ range .eintraege }}
+      <div class="card">
+        <h3>{{ .name }}</h3>
+        <p>{{ .beschreibung | markdownify }}</p>
+        {{ with .link }}<p><a href="{{ . }}" target="_blank" rel="noopener">Zum Podcast &rarr;</a></p>{{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* --- Kontakt --- */}}
+  {{ with .Params.kontakt }}
+  <section id="kontakt">
+    <h2>{{ .titel }}</h2>
+    <ul class="contact-list">
+      {{ range .eintraege }}
+      <li>
+        <strong>{{ .label }}:</strong>
+        {{ if .link }}<a href="{{ .link | safeURL }}">{{ .wert }}</a>{{ else }}{{ .wert }}{{ end }}
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
+
+</main>
+{{ end }}

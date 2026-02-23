@@ -1,0 +1,8 @@
+baseURL = "https://huber.church/"
+languageCode = "de"
+title = "Lukas P. Huber"
+
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  description = "Pfarrer, Coach, Podcaster"
