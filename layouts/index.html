@@ -1,8 +1,11 @@
 {{ define "main" }}
 <header class="hero">
-  <div class="container">
-    <h1>{{ .Site.Title }}</h1>
-    <p class="subtitle">{{ .Site.Params.description }}</p>
+  <div class="container hero-content">
+    <img src="{{ "images/portrait.jpg" | relURL }}" alt="Lukas P. Huber" class="portrait">
+    <div>
+      <h1>{{ .Site.Title }}</h1>
+      <p class="subtitle">{{ .Site.Params.description }}</p>
+    </div>
   </div>
 </header>
 

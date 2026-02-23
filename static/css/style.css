@@ -38,10 +38,25 @@ body {
 /* --- Hero --- */
 
 .hero {
-  padding: 5rem 0 3rem;
-  text-align: center;
+  padding: 4rem 0 3rem;
   background: linear-gradient(135deg, #1e3a5f 0%, #2d5f8a 100%);
   color: #fff;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.portrait {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
 }
 
 .hero h1 {
@@ -54,6 +69,18 @@ body {
   margin-top: 0.5rem;
   font-size: 1.15rem;
   opacity: 0.85;
+}
+
+@media (max-width: 30rem) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .portrait {
+    width: 130px;
+    height: 130px;
+  }
 }
 
 /* --- Sections --- */
